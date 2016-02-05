@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 
   <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -14,6 +15,16 @@
   <h:body>
 
     <h1>index 2</h1>
+    <ui:remove>
+      <f:selectItem itemValue="#{null}" itemLabel="-- select one --" />
+    </ui:remove>
+
+    <h:form>
+      <h:selectOneMenu value="#{goalController.selectedCategory}">
+        <f:selectItems value="#{goalController.availableItems}" />
+      </h:selectOneMenu>
+      <h:commandButton value="Submit" action="#{goalController.submit}" />
+    </h:form>
 
   </h:body>
 
