@@ -37,7 +37,7 @@ public class LifecycleListener implements PhaseListener {
 
     public void afterPhase(PhaseEvent event) {
         LOGGER.info("END PHASE " + event.getPhaseId());
-        logViewParams();
+        //  logViewParams();
 
     }
 

@@ -11,7 +11,7 @@ import org.omnifaces.cdi.ViewScoped;
 
 @Named
 @ViewScoped
-public class GoalController implements Serializable {
+public class SimpleSelectGroupItemController implements Serializable {
 
     String description;
 

@@ -20,10 +20,21 @@
     </ui:remove>
 
     <h:form>
-      <h:selectOneMenu value="#{goalController.selectedCategory}">
-        <f:selectItems value="#{goalController.availableItems}" />
+      <h:selectOneMenu value="#{simpleSelectGroupItemController.selectedCategory}">
+
+        <f:selectItems value="#{simpleSelectGroupItemController.availableItems}" />
+
       </h:selectOneMenu>
-      <h:commandButton value="Submit" action="#{goalController.submit}" />
+
+      <h:selectOneMenu value="#{bean.selectedCategory}">
+
+        <f:converter converterId="myConv"/>
+
+        <f:selectItems value="#{bean.categories}" var="g" itemValue="#{g.id}" itemLabel="#{g.description}" />
+        <f:ajax listener="#{bean.handleSelection()}" event="change" execute="@this"/>
+      </h:selectOneMenu>
+
+      <h:commandButton value="Submit" action="#{simpleSelectGroupItemController.submit}" />
     </h:form>
 
   </h:body>
