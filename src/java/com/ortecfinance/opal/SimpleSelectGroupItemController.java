@@ -2,6 +2,7 @@ package com.ortecfinance.opal;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.model.SelectItem;
@@ -18,6 +19,9 @@ public class SimpleSelectGroupItemController implements Serializable {
     String selectedCategory;
 
     private List<SelectItem> availableItems;
+
+    private String[] myArray = new String[]{"aap", "noot", "mies"};
+    private List<String> myList = Arrays.asList("aap", "noot", "mies");
 
     @PostConstruct
     public void init() {
@@ -65,4 +69,27 @@ public class SimpleSelectGroupItemController implements Serializable {
         return "index2";
     }
 
+    public String[] getMyArray() {
+        return myArray;
+    }
+
+    public void setMyArray(String[] myArray) {
+        this.myArray = myArray;
+    }
+
+    public List<String> getMyList() {
+        return myList;
+    }
+
+    public void setMyList(List<String> myList) {
+        this.myList = myList;
+    }
+
+    public int getArrayGrootte() {
+        return myArray.length;
+    }
+
+    public int getListGrootte() {
+        return myList.size();
+    }
 }

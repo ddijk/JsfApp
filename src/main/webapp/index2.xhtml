@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:ez="http://java.sun.com/jsf/composite/ezcomp">
 
   <h:head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -31,11 +31,20 @@
         <f:converter converterId="myConv"/>
 
         <f:selectItems value="#{bean.categories}" var="g" itemValue="#{g.id}" itemLabel="#{g.description}" />
-        <f:ajax listener="#{bean.handleSelection()}" event="change" execute="@this"/>
+        <f:ajax listener="#{bean.handleSelection()}" render="" event="change" execute="@this"/>
       </h:selectOneMenu>
 
       <h:commandButton value="Submit" action="#{simpleSelectGroupItemController.submit}" />
+      <div ></div>
+
     </h:form>
+
+    <h:outputText id="bericht" value="You selected: #{bean.selectedCategory}"/>
+
+
+    <div class="green">
+      <ez:listsize coll="#{simpleSelectGroupItemController.myList}" />
+    </div>
 
   </h:body>
 
